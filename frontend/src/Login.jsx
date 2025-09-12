@@ -17,12 +17,17 @@ export default function Login() {
     e.preventDefault();
 
     if (role === "admin") {
-      // static admin login
-      if (username === "nivetha" && password === "nivetha@123") {
-        alert("Admin login successful!");
+      try {
+        const res = await axios.post("http://localhost:5000/api/auth/admin/login", {
+          email: username,
+          password:password
+        });
+        console.log("Request Sent");
+        console.log(res);
+        alert(res.data.message);
         navigate("/admin-dashboard");
-      } else {
-        alert("Login failed!");
+      } catch (err) {
+        alert(err.response?.data?.message || "Admin login failed");
       }
     } else if (role === "teacher") {
       try {

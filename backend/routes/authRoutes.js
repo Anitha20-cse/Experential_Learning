@@ -1,9 +1,10 @@
-const express = require("express"); // ✅ module
-const router = express.Router();    // ✅ router
+const express = require("express"); 
+const router = express.Router(); 
 
-const { loginTeacher } = require("../controllers/authController");
+const { loginTeacher, adminLogin } = require("../controllers/authController");
 
 // Teacher login
 router.post("/teacher/login", loginTeacher);
+router.post("/admin/login",adminLogin);
 
 module.exports = router;
