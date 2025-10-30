@@ -1,0 +1,301 @@
+.dashboard-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg);
+  padding: 40px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Header: Logo + Title aligned horizontally */
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* Reduced for tighter layout */
+  margin-bottom: 60px;
+}
+
+/* Title aligned next to logo */
+.dashboard-title {
+  font-size: 55px;
+  font-weight: 900; /* make it bold */
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(90deg, #003399, #003399);
+  text-align: center;
+  font-weight: 700;
+  z-index: 1;
+  animation: fadeInDown 1s ease;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+}
+
+/* Grid Layout */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Each Card */
+.dashboard-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.1);
+  border: 1px solid #e0e7ff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.dashboard-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(79, 70, 229, 0.2);
+  border-color: #a5b4fc;
+}
+
+/* Icon Container */
+.dashboard-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #9333ea);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 36px;
+  box-shadow: 0 6px 15px rgba(99, 102, 241, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.dashboard-card:hover .dashboard-icon {
+  transform: scale(1.15);
+}
+
+/* Title inside Card */
+.dashboard-card h2 {
+  margin-top: 20px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1f2937;
+  transition: color 0.3s ease;
+}
+
+.dashboard-card:hover h2 {
+  color:#4696e5;
+}
+
+/* Description */
+.dashboard-card p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: grey;
+  line-height: 1.6;
+}
+
+/* Button */
+.dashboard-btn {
+  margin-top: 20px;
+  padding: 10px 24px;
+  border-radius: 18px;
+  background: linear-gradient(90deg, #4f46e5, skyblue); /* Fixed gradient syntax */
+  color: white;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.25);
+  transition: all 0.3s ease;
+}
+
+.dashboard-btn:hover {
+  background: linear-gradient(90deg, skyblue, skyblue);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(79, 70, 229, 0.35);
+}
+
+/* Sidebar Styles */
+.sidebar-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: linear-gradient(135deg, #6366f1, #9333ea);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+  transform: scale(1.1);
+}
+
+.sidebar-overlay {
+  position: fixed;
+  top: 20px; /* Adjusted to not cover full height */
+  left: 20px; /* Adjusted to align with sidebar toggle */
+  width: 340px; /* Slightly wider than sidebar */
+  height: auto; /* Adjust height to content */
+  max-height: 90vh;
+  background: rgba(0, 0, 0, 0.1); /* Lighter background to not block view */
+  z-index: 999;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start; /* Align to top */
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.sidebar {
+  width: 320px;
+  height: 100%;
+  background: white;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  overflow-y: auto;
+  max-height: 90vh; /* Limit height to 90% viewport height */
+  border-radius: 12px;
+  margin-left: 10px; /* Small margin from left edge */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  color: #1f2937;
+}
+
+.sidebar-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.profile-section {
+  text-align: left;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.profile-photo {
+  margin-bottom: 0;
+}
+
+.profile-photo img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #e5e7eb;
+  display: block;
+  margin: 0;
+}
+
+.profile-info {
+  width: 100%;
+  text-align: left;
+  padding: 0 10px;
+}
+
+.profile-info p {
+  margin: 8px 0;
+  color: #374151;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.logout-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  margin-top: auto;
+}
+
+.logout-btn:hover {
+  background: linear-gradient(90deg, #dc2626, #b91c1c);
+}
+
+/* Students List Styles */
+.students-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.student-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(79, 70, 229, 0.1);
+  border: 1px solid #e0e7ff;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.student-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(79, 70, 229, 0.2);
+}
+
+.student-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #9333ea);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.student-info h3 {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.student-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #6b7280;
+}

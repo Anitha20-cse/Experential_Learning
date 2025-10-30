@@ -1,0 +1,507 @@
+/* ====================================
+   PARENT DASHBOARD ONLY - NO LOGIN PAGE CHANGES
+   ==================================== */
+
+/* Parent Dashboard Container */
+.parent-dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: #f0f4f8;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  flex-direction: column;
+}
+
+/* ====================================
+   FLASH NEWS TICKER - TOP BAR
+   ==================================== */
+
+.announcements-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: stretch;
+  background: #0066cc;
+  color: white;
+  height: 50px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.announcements-label {
+  background: #004d99;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 0 25px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 200px;
+  border-right: 2px solid rgba(255, 255, 255, 0.2);
+  gap: 8px;
+}
+
+.announcements-label::before {
+  content: "📢";
+  font-size: 1.2rem;
+}
+
+.announcements-scroll {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #0066cc;
+}
+
+.scroll-text {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: scrollTicker 30s linear infinite;
+  padding-left: 100%;
+}
+
+.announcement-item {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 100px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+  gap: 12px;
+}
+
+.new-icon {
+  width: 45px;
+  height: auto;
+  vertical-align: middle;
+  animation: blink 1.5s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes scrollTicker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.announcements-scroll:hover .scroll-text {
+  animation-play-state: paused;
+  cursor: pointer;
+}
+
+/* ====================================
+   SIDEBAR STYLES
+   ==================================== */
+
+.sidebar-toggle {
+  position: fixed;
+  top: 60px;
+  left: 15px;
+  z-index: 999;
+  background: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+  transition: all 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+  background: #0052a3;
+  transform: scale(1.05);
+}
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 100vh;
+  background: #ffffff;
+  color: #333;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+  animation: slideIn 0.3s ease;
+  overflow-y: auto;
+  z-index: 1001;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  background: #f9f9f9;
+}
+
+.sidebar-header h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #0066cc;
+}
+
+.sidebar-close {
+  background: transparent;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 5px;
+}
+
+.sidebar-close:hover {
+  color: #0066cc;
+  transform: rotate(90deg);
+}
+
+/* Language Selector */
+.language-selector {
+  padding: 15px 20px;
+  background: #f9f9f9;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.language-selector label {
+  font-weight: 600;
+  color: #555;
+  margin-right: 8px;
+  font-size: 0.9rem;
+}
+
+.language-selector select {
+  background: white;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.language-selector select:hover {
+  border-color: #0066cc;
+}
+
+.language-selector select:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
+}
+
+/* Profile Section */
+.profile-section {
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  background: white;
+}
+
+.profile-photo {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #0066cc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e3f2fd;
+  color: #0066cc;
+}
+
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-info {
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.profile-info p {
+  margin-bottom: 8px;
+}
+
+.profile-info strong {
+  color: #333;
+  font-weight: 600;
+}
+
+.profile-info hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 15px 0;
+}
+
+.profile-info h4 {
+  color: #0066cc;
+  font-size: 1rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.student-profile {
+  background: #f9f9f9;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  border-left: 3px solid #0066cc;
+}
+
+.logout-btn {
+  background: #d32f2f;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin: 20px;
+  margin-top: auto;
+}
+
+.logout-btn:hover {
+  background: #b71c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+}
+
+/* ====================================
+   DASHBOARD CONTAINER
+   ==================================== */
+
+.dashboard-container {
+  flex: 1;
+  padding: 30px;
+  background: #f0f4f8;
+}
+
+.dashboard-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #0066cc;
+  margin-bottom: 30px;
+  text-align: center;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #0066cc;
+}
+
+/* ====================================
+   DASHBOARD GRID & CARDS
+   ==================================== */
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dashboard-card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0, 102, 204, 0.2);
+  border-color: #0066cc;
+}
+
+.dashboard-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e3f2fd;
+  border-radius: 50%;
+  color: #0066cc;
+  transition: all 0.3s ease;
+}
+
+.dashboard-card:hover .dashboard-icon {
+  background: #0066cc;
+  color: white;
+  transform: scale(1.1);
+}
+
+.dashboard-card h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.dashboard-card:hover h2 {
+  color: #0066cc;
+}
+
+.dashboard-card p {
+  font-size: 0.95rem;
+  color: #777;
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.dashboard-btn {
+  background: #0066cc;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.dashboard-btn:hover {
+  background: #0052a3;
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+}
+
+/* ====================================
+   RESPONSIVE DESIGN
+   ==================================== */
+
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+  }
+
+  .dashboard-container {
+    padding: 20px 15px;
+  }
+
+  .dashboard-title {
+    font-size: 1.6rem;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+  }
+
+  .announcements-label {
+    font-size: 0.85rem;
+    padding: 0 15px;
+    min-width: 120px;
+  }
+
+  .announcement-item {
+    font-size: 0.85rem;
+    margin-right: 60px;
+  }
+
+  .new-icon {
+    width: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-card {
+    padding: 25px 20px;
+  }
+
+  .dashboard-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .dashboard-card h2 {
+    font-size: 1.15rem;
+  }
+
+  .announcements-label {
+    font-size: 0.75rem;
+    padding: 0 10px;
+    min-width: 100px;
+  }
+
+  .announcement-item {
+    font-size: 0.8rem;
+  }
+}

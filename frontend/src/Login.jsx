@@ -3,72 +3,96 @@ import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import necLogo from "./nec-logo.png";
 import axios from "axios";
+import { GoogleLogin } from "@react-oauth/google";
+import jwtDecode from "jwt-decode";
 
 export default function Login() {
   const navigate = useNavigate();
+  const [role, setRole] = useState("teacher");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
 
-  const [role, setRole] = useState("admin");
-  const [username, setUsername] = useState(""); // admin/teacher username
-  const [password, setPassword] = useState(""); // admin/teacher password
-  const [regNo, setRegNo] = useState(""); // student regNo
-  const [dob, setDob] = useState("");     // student DOB
-
+  // ✅ Normal Login
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (role === "admin") {
-      try {
-        const res = await axios.post("http://localhost:5000/api/auth/admin/login", {
+    try {
+      let res;
+      if (role === "admin") {
+        res = await axios.post("http://localhost:5000/api/auth/admin/login", {
           email: username,
-          password:password
+          password,
         });
-        console.log("Request Sent");
-        console.log(res);
-        alert(res.data.message);
+      } else if (role === "teacher") {
+        res = await axios.post("http://localhost:5000/api/auth/teacher/login", {
+          email: username,
+          password,
+        });
+      } else if (role === "parent") {
+        res = await axios.post("http://localhost:5000/api/auth/parent/login", {
+          email,
+          password,
+        });
+      }
+
+      alert(res.data.message);
+      localStorage.setItem("token", res.data.token);
+
+      // Store user data in localStorage
+      if (role === "admin") {
+        localStorage.setItem("admin", JSON.stringify(res.data.teacher));
         navigate("/admin-dashboard");
-      } catch (err) {
-        alert(err.response?.data?.message || "Admin login failed");
+      } else if (role === "teacher") {
+        localStorage.setItem("teacher", JSON.stringify(res.data.teacher));
+        if (res.data.teacher?.year === "4") navigate("/teacher-dashboard-year4");
+        else navigate("/teacher-dashboard");
+      } else if (role === "parent") {
+        localStorage.setItem("parent", JSON.stringify(res.data.parent));
+        navigate("/parent-dashboard");
       }
-    } else if (role === "teacher") {
-      try {
-        const res = await axios.post("http://localhost:5000/api/auth/teacher/login", {
-          email: username,
-          password:password
-        });
-        console.log("Request Sent");
-        console.log(res);
-        alert(res.data.message);
-        navigate("/teacher-dashboard");
-      } catch (err) {
-        alert(err.response?.data?.message || "Teacher login failed");
-      }
-    } else if (role === "student") {
-      try {
-        const res = await axios.post("http://localhost:5000/api/auth/student/register", {
-          regNo,
-          dob,
-        });
-        alert(res.data.message);
-        navigate("/teacher-dashboard");
-      } catch (err) {
-        alert(err.response?.data?.message || "Student registration failed");
-      }
+    } catch (err) {
+      console.error(err);
+      alert(err.response?.data?.message || `${role} login failed`);
+    }
+  };
+
+  // ✅ Google OAuth Login
+  const handleGoogleSuccess = async (credentialResponse) => {
+    try {
+      const decoded = jwtDecode(credentialResponse.credential);
+      const token = credentialResponse.credential;
+
+      const res = await axios.post("http://localhost:5000/api/auth/google/login", {
+        token,
+        role,
+      });
+
+      alert(res.data.message);
+      localStorage.setItem("token", res.data.token);
+
+      // Store user data in localStorage
+      localStorage.setItem(role, JSON.stringify(res.data.user));
+
+      if (role === "admin") navigate("/admin-dashboard");
+      else if (role === "teacher") navigate("/teacher-dashboard");
+      else navigate("/parent-dashboard");
+    } catch (error) {
+      console.error(error);
+      alert("Google Sign-in failed");
     }
   };
 
   return (
     <div className="login-container">
       <div className="login-card">
-        {/* Left Sidebar */}
+        {/* Sidebar */}
         <div className="sidebar">
           <div className="logo-section">
-            <div className="logo-placeholder">
-              <img src={necLogo} alt="NEC Logo" className="logo-image" />
-            </div>
+            <img src={necLogo} alt="NEC Logo" className="logo-image" />
             <h2 className="welcome-text">Welcome Back</h2>
             <p className="subtitle">Choose your portal to continue</p>
           </div>
-
           <div className="role-buttons">
             <button
               className={`role-btn ${role === "admin" ? "active" : ""}`}
@@ -83,29 +107,29 @@ export default function Login() {
               👨‍🏫 Teacher Portal
             </button>
             <button
-              className={`role-btn ${role === "student" ? "active" : ""}`}
-              onClick={() => setRole("student")}
+              className={`role-btn ${role === "parent" ? "active" : ""}`}
+              onClick={() => setRole("parent")}
             >
-              👨‍🎓 Student Portal
+              🎓Parent Portal
             </button>
           </div>
         </div>
 
-        {/* Right Login Form */}
+        {/* Right Form */}
         <div className="form-section">
           <div className="form-header">
-            <h2 className="form-title">{role.charAt(0).toUpperCase() + role.slice(1)} Login</h2>
-            <p className="form-subtitle">Enter your credentials to access your dashboard</p>
+            <h2>{role.charAt(0).toUpperCase() + role.slice(1)} Login</h2>
+            <p>Enter your credentials to access your dashboard</p>
           </div>
 
           <form className="login-form" onSubmit={handleSubmit}>
             {(role === "admin" || role === "teacher") && (
               <>
                 <div className="input-group">
-                  <label>Username</label>
+                  <label>Email</label>
                   <input
                     type="text"
-                    placeholder="Enter your username"
+                    placeholder="Enter your email"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     required
@@ -124,24 +148,25 @@ export default function Login() {
               </>
             )}
 
-            {role === "student" && (
+            {role === "parent" && (
               <>
                 <div className="input-group">
-                  <label>Registration Number</label>
+                  <label>Email</label>
                   <input
-                    type="text"
-                    placeholder="Enter your registration number"
-                    value={regNo}
-                    onChange={(e) => setRegNo(e.target.value)}
+                    type="email"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     required
                   />
                 </div>
                 <div className="input-group">
-                  <label>Date of Birth</label>
+                  <label>Password</label>
                   <input
-                    type="date"
-                    value={dob}
-                    onChange={(e) => setDob(e.target.value)}
+                    type="password"
+                    placeholder="Enter your password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     required
                   />
                 </div>
@@ -152,6 +177,14 @@ export default function Login() {
               Sign In to {role.charAt(0).toUpperCase() + role.slice(1)} Portal
             </button>
           </form>
+
+          {/* ✅ Google OAuth Login Button */}
+          <div style={{ marginTop: "20px", textAlign: "center" }}>
+            <GoogleLogin
+              onSuccess={handleGoogleSuccess}
+              onError={() => alert("Google Sign-in failed")}
+            />
+          </div>
         </div>
       </div>
     </div>

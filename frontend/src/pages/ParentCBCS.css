@@ -1,0 +1,113 @@
+body {
+  background: linear-gradient(135deg, #e0f7fa, #f1fffe);
+  font-family: "Poppins", sans-serif;
+}
+
+.cbcs-container {
+  background: rgba(255, 255, 255, 0.9);
+  max-width: 1200px;
+  margin: 50px auto;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 8px 24px rgba(0, 150, 136, 0.2);
+  backdrop-filter: blur(8px);
+  text-align: center;
+}
+
+.cbcs-container h1 {
+  color: #00796b;
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.cbcs-container p {
+  color: #004d40;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.cbcs-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.cbcs-form input[type="file"] {
+  padding: 12px;
+  border: 2px solid #b2dfdb;
+  border-radius: 10px;
+  background: #f0fffe;
+  width: 100%;
+  max-width: 300px;
+}
+
+.cbcs-form input[type="file"]:focus {
+  border-color: #4db6ac;
+  box-shadow: 0 0 10px rgba(77, 182, 172, 0.3);
+  outline: none;
+}
+
+.cbcs-form button {
+  background: linear-gradient(90deg, #26a69a, #00796b);
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 30px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cbcs-form button:hover {
+  background: linear-gradient(90deg, #00796b, #004d40);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 121, 107, 0.3);
+}
+
+.message {
+  margin-top: 20px;
+  font-weight: 600;
+  color: #00796b;
+}
+
+.data-display {
+  margin-top: 40px;
+  text-align: left;
+}
+
+.data-display h2 {
+  color: #00796b;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.data-table th,
+.data-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.data-table th {
+  background-color: #00796b;
+  color: white;
+  font-weight: 600;
+}
+
+.data-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.data-table tr:hover {
+  background-color: #f1f1f1;
+}

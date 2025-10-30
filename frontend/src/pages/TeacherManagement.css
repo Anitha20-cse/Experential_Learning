@@ -1,0 +1,594 @@
+/* Enhanced Teacher Management Styles */
+.teacher-container {
+  padding: 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animated Background Patterns */
+.teacher-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.06) 0%, transparent 50%);
+  animation: float 25s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) scale(1); 
+    opacity: 1;
+  }
+  50% { 
+    transform: translateY(-30px) scale(1.1); 
+    opacity: 0.8;
+  }
+}
+
+.teacher-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="20" r="2" fill="rgba(255,255,255,0.08)"/><circle cx="30" cy="80" r="1" fill="rgba(255,255,255,0.12)"/><circle cx="70" cy="60" r="1.5" fill="rgba(255,255,255,0.09)"/></svg>');
+  animation: twinkle 5s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+/* Title Styling */
+.teacher-title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 50px;
+  color: white;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+  animation: fadeInDown 0.8s ease-out;
+  letter-spacing: -1px;
+  line-height: 1.2;
+}
+
+.teacher-title::after {
+  content: '';
+  display: block;
+  width: 120px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.9);
+  margin: 20px auto 0;
+  border-radius: 3px;
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Year Filter Buttons */
+.year-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+  flex-wrap: wrap;
+  animation: fadeIn 1s ease-out 0.3s both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.year-btn {
+  padding: 15px 30px;
+  border-radius: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.year-btn.active {
+  background: white;
+  border-color: white;
+  color: #667eea;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
+}
+
+.year-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.year-btn.active:hover {
+  background: white;
+  transform: translateY(-3px) scale(1.08);
+}
+
+/* Form Styling */
+.teacher-form {
+  display: grid;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto 50px;
+  background: white;
+  padding: 45px;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 1;
+  animation: slideInUp 0.8s ease-out 0.2s both;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.teacher-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 24px 24px 0 0;
+}
+
+.teacher-form input,
+.teacher-form select {
+  padding: 16px 20px;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+  color: #495057;
+  font-weight: 500;
+  font-family: inherit;
+}
+
+.teacher-form input:focus,
+.teacher-form select:focus {
+  outline: none;
+  border-color: #667eea;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+  transform: translateY(-2px);
+}
+
+.teacher-form input[type="file"] {
+  padding: 14px;
+  cursor: pointer;
+}
+
+.teacher-form button[type="submit"] {
+  padding: 18px 28px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 1.1rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.teacher-form button[type="submit"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s;
+}
+
+.teacher-form button[type="submit"]:hover::before {
+  left: 100%;
+}
+
+.teacher-form button[type="submit"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 35px rgba(102, 126, 234, 0.5);
+}
+
+.teacher-form button[type="submit"]:active {
+  transform: translateY(-1px);
+}
+
+/* Preview Image */
+.preview-img {
+  max-height: 140px;
+  border-radius: 16px;
+  object-fit: cover;
+  margin-top: 8px;
+  border: 4px solid #e9ecef;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.preview-img:hover {
+  transform: scale(1.05);
+  border-color: #667eea;
+}
+
+/* Teacher Cards Grid */
+.teacher-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 35px;
+  position: relative;
+  z-index: 1;
+}
+
+.teacher-card {
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  padding: 35px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInScale 0.8s ease-out;
+  animation-fill-mode: both;
+}
+
+.teacher-card:nth-child(1) { animation-delay: 0.1s; }
+.teacher-card:nth-child(2) { animation-delay: 0.2s; }
+.teacher-card:nth-child(3) { animation-delay: 0.3s; }
+.teacher-card:nth-child(4) { animation-delay: 0.4s; }
+.teacher-card:nth-child(5) { animation-delay: 0.5s; }
+.teacher-card:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.teacher-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 24px 24px 0 0;
+  transition: height 0.3s ease;
+}
+
+.teacher-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
+}
+
+.teacher-card:hover::before {
+  height: 8px;
+}
+
+/* Teacher Photo */
+.teacher-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border: 5px solid #f8f9fa;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.teacher-card:hover .teacher-photo {
+  border-color: #667eea;
+  transform: scale(1.08) rotate(3deg);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+}
+
+.placeholder-icon {
+  font-size: 80px;
+  color: #adb5bd;
+  margin-bottom: 20px;
+  transition: all 0.4s ease;
+  text-align: center;
+  display: block;
+}
+
+.teacher-card:hover .placeholder-icon {
+  color: #667eea;
+  transform: scale(1.15) rotate(5deg);
+}
+
+/* Teacher Info */
+.teacher-info h3 {
+  margin: 15px 0 20px;
+  color: #1a1a1a;
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+.teacher-info p {
+  margin: 12px 0;
+  color: #495057;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.teacher-info p:hover {
+  background: #f8f9fa;
+  padding-left: 16px;
+}
+
+.teacher-info p svg {
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  font-size: 18px;
+}
+
+.teacher-card:hover .teacher-info p svg {
+  transform: scale(1.2);
+}
+
+/* Action Buttons */
+.delete-icon-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 15px rgba(239, 68, 68, 0.3);
+  z-index: 10;
+}
+
+.delete-icon-btn:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  transform: scale(1.15) rotate(10deg);
+  box-shadow: 0 8px 25px rgba(239, 68, 68, 0.5);
+}
+
+.delete-icon-btn:active {
+  transform: scale(1.05) rotate(5deg);
+}
+
+.edit-btn {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.edit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(245, 158, 11, 0.5);
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+}
+
+.edit-btn:active {
+  transform: translateY(0);
+}
+
+.card-buttons {
+  text-align: center;
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding-top: 20px;
+  border-top: 2px solid #f1f5f9;
+}
+
+/* Loading and Empty States */
+.loading-text {
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 80px 0;
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.no-teachers {
+  text-align: center;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 80px 0;
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 50px;
+  border-radius: 20px;
+  border: 3px dashed rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.no-teachers::before {
+  content: '👨‍🏫';
+  display: block;
+  font-size: 4rem;
+  margin-bottom: 20px;
+  opacity: 0.7;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .teacher-list {
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .teacher-container {
+    padding: 25px;
+  }
+
+  .teacher-title {
+    font-size: 2.2rem;
+    margin-bottom: 35px;
+  }
+
+  .teacher-form {
+    padding: 30px;
+  }
+
+  .teacher-list {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .year-buttons {
+    gap: 12px;
+  }
+
+  .year-btn {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+
+  .teacher-photo {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .teacher-container {
+    padding: 20px;
+  }
+
+  .teacher-title {
+    font-size: 1.8rem;
+  }
+
+  .teacher-form {
+    padding: 25px;
+  }
+
+  .teacher-photo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .teacher-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .teacher-info p {
+    font-size: 0.9rem;
+  }
+}

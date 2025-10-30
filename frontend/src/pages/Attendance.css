@@ -1,0 +1,649 @@
+/* ====================================
+   PROFESSIONAL ATTENDANCE PAGE
+   ==================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
+  font-family: "Poppins", "Inter", sans-serif;
+  min-height: 100vh;
+}
+
+.attendance-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ====================================
+   HEADER SECTION
+   ==================================== */
+
+.attendance-container h1 {
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 40px;
+  background: linear-gradient(135deg, #1976d2 0%, #2196f3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.6s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ====================================
+   UPLOAD SECTION
+   ==================================== */
+
+.upload-section {
+  background: white;
+  border-radius: 20px;
+  padding: 35px;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 40px rgba(33, 150, 243, 0.15);
+  border: 2px solid rgba(33, 150, 243, 0.1);
+  animation: slideUp 0.7s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.upload-section h2 {
+  color: #1565c0;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.upload-section h2::before {
+  content: "📤";
+  font-size: 2rem;
+}
+
+/* ====================================
+   UPLOAD CONTAINER
+   ==================================== */
+
+.upload-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 25px;
+  margin-bottom: 35px;
+}
+
+.upload-panel {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 8px 25px rgba(33, 150, 243, 0.12);
+  border: 2px solid rgba(33, 150, 243, 0.15);
+  transition: all 0.3s ease;
+}
+
+.upload-panel:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(33, 150, 243, 0.2);
+  border-color: #2196f3;
+}
+
+.upload-panel h3 {
+  color: #1565c0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.upload-panel h3::before {
+  content: "📁";
+  font-size: 1.5rem;
+}
+
+/* ====================================
+   UPLOAD FORM
+   ==================================== */
+
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.upload-form select,
+.upload-form input[type="number"],
+.upload-form input[type="file"] {
+  padding: 14px 18px;
+  border: 2px solid #90caf9;
+  border-radius: 12px;
+  background: white;
+  font-size: 15px;
+  font-family: inherit;
+  color: #1565c0;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.upload-form select:hover,
+.upload-form input:hover {
+  border-color: #42a5f5;
+}
+
+.upload-form select:focus,
+.upload-form input:focus {
+  outline: none;
+  border-color: #2196f3;
+  background: #f0f9ff;
+  box-shadow: 0 0 0 4px rgba(33, 150, 243, 0.1);
+  transform: translateY(-2px);
+}
+
+.upload-form input[type="file"] {
+  cursor: pointer;
+  padding: 12px 18px;
+}
+
+.upload-form input[type="file"]::file-selector-button {
+  padding: 8px 18px;
+  background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-right: 12px;
+  transition: all 0.3s ease;
+}
+
+.upload-form input[type="file"]::file-selector-button:hover {
+  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+  transform: scale(1.05);
+}
+
+.upload-form button[type="submit"] {
+  background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+  color: white;
+  font-weight: 700;
+  padding: 14px 24px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(33, 150, 243, 0.3);
+}
+
+.upload-form button[type="submit"]:hover {
+  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(33, 150, 243, 0.4);
+}
+
+.upload-form button[type="submit"]:active {
+  transform: translateY(-1px);
+}
+
+/* ====================================
+   MESSAGES
+   ==================================== */
+
+.upload-message {
+  margin-top: 15px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%);
+  color: #2e7d32;
+  border: 2px solid #66bb6a;
+  animation: messageSlide 0.4s ease;
+}
+
+@keyframes messageSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ====================================
+   DELETE SECTION
+   ==================================== */
+
+.delete-section {
+  background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+  border-radius: 16px;
+  padding: 28px;
+  border: 2px solid #ef5350;
+  box-shadow: 0 8px 25px rgba(244, 67, 54, 0.15);
+}
+
+.delete-section h3 {
+  color: #c62828;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.delete-section h3::before {
+  content: "⚠️";
+  font-size: 1.5rem;
+}
+
+.delete-section p {
+  color: #d32f2f;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+
+.delete-section button {
+  background: linear-gradient(135deg, #ef5350 0%, #e53935 100%);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(244, 67, 54, 0.3);
+}
+
+.delete-section button:hover {
+  background: linear-gradient(135deg, #e53935 0%, #d32f2f 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(244, 67, 54, 0.4);
+}
+
+.delete-message {
+  margin-top: 15px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* ====================================
+   DATA CONTAINER - STACKED LAYOUT
+   ==================================== */
+
+.data-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.data-panel {
+  background: white;
+  border-radius: 20px;
+  padding: 35px;
+  box-shadow: 0 10px 40px rgba(33, 150, 243, 0.15);
+  border: 2px solid rgba(33, 150, 243, 0.1);
+  animation: slideUp 0.8s ease;
+  width: 100%;
+}
+
+.data-panel h3 {
+  color: #1565c0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #bbdefb;
+}
+
+.data-panel h3::before {
+  content: "📊";
+  font-size: 1.8rem;
+}
+
+/* ====================================
+   TABLE STYLES - FULL WIDTH
+   ==================================== */
+
+.table-wrapper {
+  overflow-x: auto;
+  max-height: 600px;
+  overflow-y: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(33, 150, 243, 0.1);
+  width: 100%;
+}
+
+/* Custom Scrollbar */
+.table-wrapper::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: #e3f2fd;
+  border-radius: 10px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+  border-radius: 10px;
+  border: 2px solid #e3f2fd;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+}
+
+table {
+  width: 100%;
+  min-width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  table-layout: auto;
+}
+
+thead {
+  background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+th {
+  padding: 18px 16px;
+  text-align: left;
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  min-width: 120px;
+}
+
+td {
+  padding: 16px;
+  text-align: left;
+  color: #424242;
+  font-weight: 500;
+  font-size: 15px;
+  border-bottom: 1px solid #e3f2fd;
+  white-space: nowrap;
+  min-width: 120px;
+}
+
+tbody tr {
+  transition: all 0.3s ease;
+}
+
+tbody tr:nth-child(even) {
+  background: #f5f9ff;
+}
+
+tbody tr:hover {
+  background: #e3f2fd;
+  transform: scale(1.01);
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+}
+
+/* ====================================
+   EMPTY STATE
+   ==================================== */
+
+.table-wrapper:empty::before {
+  content: "No data available";
+  display: block;
+  text-align: center;
+  padding: 40px;
+  color: #90a4ae;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* ====================================
+   RESPONSIVE DESIGN
+   ==================================== */
+
+@media (max-width: 1200px) {
+  .upload-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .attendance-container {
+    padding: 25px 20px;
+  }
+
+  .attendance-container h1 {
+    font-size: 2rem;
+  }
+
+  .upload-section {
+    padding: 25px;
+  }
+
+  .upload-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .upload-panel {
+    padding: 20px;
+  }
+
+  .upload-panel h3 {
+    font-size: 1.2rem;
+  }
+
+  .data-panel {
+    padding: 25px;
+  }
+
+  .data-panel h3 {
+    font-size: 1.3rem;
+  }
+
+  th {
+    padding: 14px 12px;
+    font-size: 13px;
+    min-width: 100px;
+  }
+  
+  td {
+    padding: 12px;
+    font-size: 13px;
+    min-width: 100px;
+  }
+
+  .table-wrapper {
+    max-height: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .attendance-container h1 {
+    font-size: 1.6rem;
+  }
+
+  .upload-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .data-panel {
+    padding: 20px;
+  }
+
+  .table-wrapper {
+    max-height: 400px;
+  }
+
+  th {
+    padding: 12px 10px;
+    font-size: 12px;
+    min-width: 90px;
+  }
+  
+  td {
+    padding: 10px;
+    font-size: 12px;
+    min-width: 90px;
+  }
+}
+
+/* ====================================
+   BUTTON STYLES
+   ==================================== */
+
+button.edit,
+button.delete {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+button.edit {
+  background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+  color: white;
+  margin-right: 8px;
+  box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+}
+
+button.edit:hover {
+  background: linear-gradient(135deg, #f57c00 0%, #ef6c00 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 152, 0, 0.4);
+}
+
+button.delete {
+  background: linear-gradient(135deg, #ef5350 0%, #e53935 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);
+}
+
+button.delete:hover {
+  background: linear-gradient(135deg, #e53935 0%, #d32f2f 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(244, 67, 54, 0.4);
+}
+
+/* ====================================
+   ANIMATIONS
+   ==================================== */
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.upload-form button[type="submit"]:hover,
+.delete-section button:hover {
+  animation: pulse 0.6s ease-in-out;
+}
+
+/* ====================================
+   FOCUS STATES
+   ==================================== */
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid #2196f3;
+  outline-offset: 2px;
+}
+
+/* ====================================
+   LOADING STATE (Optional)
+   ==================================== */
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: #1976d2;
+  font-weight: 600;
+}
+
+.loading::after {
+  content: "...";
+  animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+  0%, 20% {
+    content: ".";
+  }
+  40% {
+    content: "..";
+  }
+  60%, 100% {
+    content: "...";
+  }
+}

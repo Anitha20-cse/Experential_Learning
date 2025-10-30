@@ -1,0 +1,92 @@
+.departments-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #f9f9f9, #e6f0ff);
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+.departments-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1a237e;
+  margin-bottom: 40px;
+  text-align: center;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.departments-title::after {
+  content: "";
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #1a73e8, #00c6ff);
+  display: block;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+.departments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  width: 90%;
+  max-width: 1000px;
+}
+
+.department-card {
+  background: linear-gradient(135deg, #89f7fe, #66a6ff);
+  border-radius: 20px;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.2);
+  padding: 40px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.department-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.15);
+  transform: rotate(25deg);
+  transition: 0.6s;
+}
+
+.department-card:hover::before {
+  left: -30%;
+  top: -30%;
+}
+
+.department-card h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.department-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.25);
+}
+
+.department-card.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: linear-gradient(135deg, #cccccc, #eeeeee);
+}
+
+.coming-soon {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #444;
+  margin-top: 12px;
+}

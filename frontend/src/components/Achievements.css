@@ -1,0 +1,205 @@
+.achievements-container {
+  padding: 20px;
+  background: linear-gradient(to right, #f0f4ff, #fefefe);
+  min-height: 100vh;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 2rem;
+  color: #333;
+}
+
+.achievement-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 40px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.achievement-form input,
+.achievement-form select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.achievement-form button {
+  grid-column: span 2;
+  padding: 10px;
+  background: #4e7dff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.achievement-form button:hover {
+  background: #335dff;
+}
+
+.achievements-sections {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.section {
+  flex: 1;
+  min-width: 400px; /* Slightly wider for better layout */
+  background: #fff;
+  border-radius: 22px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.section h2 {
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.cards {
+  display: grid;
+  gap: 15px;
+}
+
+
+.card {
+  background: #f9faff;
+  padding: 12px;
+  border-radius: 10px;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card-info {
+  flex: 1;
+}
+
+.card img {
+  width: 400px;
+  height: 300px;
+  border-radius: 8px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.event-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #222; /* dark for visibility */
+  margin: 0;
+}
+
+.badges {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #fff; /* make text visible */
+}
+
+/* Prize Colors */
+.badge.prize-1stprize {
+  background: linear-gradient(45deg, #ffd700, #ffb800); /* gold */
+  color: #000;
+}
+.badge.prize-2ndprize {
+  background: linear-gradient(45deg, #c0c0c0, #a9a9a9); /* silver */
+  color: #000;
+}
+.badge.prize-3rdprize {
+  background: linear-gradient(45deg, #cd7f32, #b87333); /* bronze */
+  color: #fff;
+}
+.badge.prize-participation {
+  background: #607d8b; /* gray-blue */
+}
+
+/* Cash prize badge */
+.badge.cash {
+  background: #4caf50;
+  color: #fff;
+}
+
+.card img:hover {
+  transform: scale(1.05);
+}
+
+.image-preview {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-preview img {
+  max-width: 9%;
+  max-height: 90%;
+  border-radius: 12px;
+}
+/* Filter bar */
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.filter-btn {
+  background: linear-gradient(45deg,pink, pink);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.filter-btn:hover {
+  transform: scale(1.05);
+}
+
+.filter-dropdown {
+  margin-left: 10px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.no-records {
+  color: #666;
+  font-style: italic;
+  margin: 10px 0;
+  text-align: center;
+}

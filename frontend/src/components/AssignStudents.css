@@ -1,0 +1,139 @@
+/* Main container */
+.assign-students-container {
+  font-family: 'Poppins', sans-serif;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  background: linear-gradient(135deg, #eef2f3, #c9d6ff);
+}
+
+/* Title */
+.assign-students-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 35px;
+  color: #222;
+}
+
+/* Form styling */
+.assign-students-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.assign-students-select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+/* Button */
+.assign-students-button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  background: #4CAF50;
+  color: #fff;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.assign-students-button:hover {
+  background: #43a047;
+}
+
+/* Message text */
+.assign-students-message {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Section heading */
+.assign-students-section h3 {
+  margin-bottom: 12px;
+  color: #222;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* Cards container */
+.assignments-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Individual card */
+.assignment-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.assignment-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Card text */
+.card-p {
+  margin: 8px 0;
+  font-size: 15px;
+  color: #333;
+}
+
+/* Edit/Delete icon buttons */
+.card-actions {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 10px;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #888;
+  transition: color 0.3s ease;
+}
+
+.icon-button:hover {
+  color: #000;
+}
+.card-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+.icon-button:hover {
+  color: #222;
+}

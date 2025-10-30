@@ -1,10 +1,20 @@
-const express = require("express"); 
-const router = express.Router(); 
+const express = require("express");
+const router = express.Router();
 
-const { loginTeacher, adminLogin } = require("../controllers/authController");
+// Import all controllers
+const {
+  loginTeacher,
+  adminLogin,
+  loginParent,
+  googleLogin
+} = require("../controllers/authController");
 
-// Teacher login
+// ✅ Existing Normal Login Routes (Unchanged)
 router.post("/teacher/login", loginTeacher);
-router.post("/admin/login",adminLogin);
+router.post("/admin/login", adminLogin);
+router.post("/parent/login", loginParent);
+
+// ✅ New Google OAuth Login Route (Common for all roles)
+router.post("/google/login", googleLogin);
 
 module.exports = router;

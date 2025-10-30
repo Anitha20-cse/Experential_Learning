@@ -1,0 +1,11 @@
+RegNo,First_Name,Last_Name,Year,Dept,Gender,Date_of_Birth,Blood_Group,Phone_Number,Email_ID,Permanent_Address,Father_Name,Mother_Name,Parent_Phone,Parent_Email,Transport_Required,Hostel_Required
+S001,Arjun,Kumar,1,CSE,Male,2005-04-12,B+,9876543210,arjun.kumar@example.com,"12, MG Road, Chennai",Ramesh,Lakshmi,9988776655,ramesh.lakshmi@gmail.com,Yes,No
+S002,Priya,Sharma,2,ECE,Female,2004-08-25,O+,9876501234,priya.sharma@example.com,"34, Anna Nagar, Chennai",Suresh,Meena,8877665544,suresh.meena@gmail.com,No,No
+S003,Rahul,Nair,3,MECH,Male,2003-11-10,A-,9876012345,rahul.nair@example.com,"56, Gandhi St, Coimbatore",Anil,Rekha,7766554433,anil.rekha@gmail.com,Yes,Yes
+S004,Sneha,Iyer,1,IT,Female,2005-02-05,AB+,9876023456,sneha.iyer@example.com,"78, Park Ave, Trichy",Rajesh,Kavitha,6655443322,rajesh.kavitha@gmail.com,No,No
+S005,Karthik,Reddy,2,CSE,Male,2004-07-18,B-,9876034567,karthik.reddy@example.com,"90, Main St, Hyderabad",Mahesh,Shanti,5544332211,mahesh.shanti@gmail.com,Yes,No
+S006,Divya,Menon,3,EEE,Female,2003-03-29,O-,9876045678,divya.menon@example.com,"21, Lake View, Kochi",Prakash,Anitha,4433221100,prakash.anitha@gmail.com,No,Yes
+S007,Sanjay,Gupta,4,CIVIL,Male,2002-12-15,A+,9876056789,sanjay.gupta@example.com,"11, Bazaar Rd, Delhi",Mukesh,Sunita,3322110099,mukesh.sunita@gmail.com,Yes,No
+S008,Meera,Das,1,CSE,Female,2005-06-08,B+,9876067890,meera.das@example.com,"45, Station Rd, Kolkata",Nitin,Pooja,2211009988,nitin.pooja@gmail.com,No,No
+S009,Ajay,Verma,2,IT,Male,2004-10-20,O+,9876078901,ajay.verma@example.com,"67, Market St, Pune",Deepak,Rani,1100998877,deepak.rani@gmail.com,Yes,Yes
+S010,Ananya,Singh,3,CSE,Female,2003-09-14,AB-,9876089012,ananya.singh@example.com,"89, Garden Ln, Lucknow",Vikram,Seema,9099887766,vikram.seema@gmail.com,No,No
