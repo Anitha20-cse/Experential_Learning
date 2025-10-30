@@ -45,7 +45,7 @@ export default function ParentDashboard() {
 
       // Fetch student profiles including assigned teachers
       axios
-        .get(`http://localhost:5000/api/assigned-students/parent/profile?parentEmail=${parentData.email}`)
+        .get(`https://experential-learning.onrender.com/api/assigned-students/parent/profile?parentEmail=${parentData.email}`)
         .then((response) => {
           setStudentProfiles(response.data);
         })
@@ -59,7 +59,7 @@ export default function ParentDashboard() {
         'x-user-email': parentData.email,
       };
       axios
-        .get("http://localhost:5000/api/announcements", { headers })
+        .get("https://experential-learning.onrender.com/api/announcements", { headers })
         .then((response) => {
           setAnnouncements(response.data.slice(0, 3)); // Get top 3
         })
@@ -229,7 +229,7 @@ export default function ParentDashboard() {
                 <div className="profile-photo">
                   {parentProfile.photo ? (
                     <img
-                      src={`http://localhost:5000/uploads/${parentProfile.photo}`}
+                      src={`https://experential-learning.onrender.com/uploads/${parentProfile.photo}`}
                       alt="Profile"
                     />
                   ) : (

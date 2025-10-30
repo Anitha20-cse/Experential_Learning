@@ -20,7 +20,7 @@ export default function ParentMarks() {
         headers['x-user-email'] = parentData.email;
       }
 
-      const res = await axios.get("http://localhost:5000/api/marks/child-marks", { headers });
+      const res = await axios.get("https://experential-learning.onrender.com/api/marks/child-marks", { headers });
       setMarks(res.data);
     } catch (err) {
       console.error(err);

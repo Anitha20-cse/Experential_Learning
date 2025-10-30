@@ -16,7 +16,7 @@ export default function ParentCirculars() {
 
   const fetchCirculars = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/circulars");
+      const res = await axios.get("https://experential-learning.onrender.com/api/circulars");
       setCirculars(res.data);
     } catch (err) {
       console.error("Error fetching circulars:", err);
@@ -111,7 +111,7 @@ export default function ParentCirculars() {
                 <div className="circular-actions">
                   <button
                     className="download-btn"
-                    onClick={() => window.open(`http://localhost:5000${circular.file}`, '_blank')}
+                    onClick={() => window.open(`https://experential-learning.onrender.com${circular.file}`, '_blank')}
                   >
                     <Download size={16} />
                     {t('viewPDF')}

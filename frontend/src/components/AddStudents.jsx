@@ -43,7 +43,7 @@ const AddStudents = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/students/upload",
+        "https://experential-learning.onrender.com/api/students/upload",
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
@@ -60,7 +60,7 @@ const AddStudents = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete("http://localhost:5000/api/students");
+      await axios.delete("https://experential-learning.onrender.com/api/students");
       showMessage("All students deleted successfully", "success");
       setStudents([]);
       setFilteredStudents([]);
@@ -73,7 +73,7 @@ const AddStudents = () => {
 
   const fetchStudents = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/students");
+      const res = await axios.get("https://experential-learning.onrender.com/api/students");
       setStudents(res.data);
       setFilteredStudents(res.data);
     } catch (err) {

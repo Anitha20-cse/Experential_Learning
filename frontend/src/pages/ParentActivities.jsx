@@ -18,7 +18,7 @@ export default function ParentActivities() {
     }
 
     axios
-      .get("http://localhost:5000/api/activities", { headers })
+      .get("https://experential-learning.onrender.com/api/activities", { headers })
       .then((res) => setActivities(res.data))
       .catch((err) => console.error(err))
       .finally(() => setLoading(false));

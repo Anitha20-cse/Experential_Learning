@@ -35,7 +35,7 @@ export default function TeacherDashboardYear4() {
 
   const fetchTeacherProfile = async (email) => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/teachers/profile/${email}`);
+      const res = await axios.get(`https://experential-learning.onrender.com/api/teachers/profile/${email}`);
       setTeacherProfile(res.data);
     } catch (err) {
       console.error("Error fetching teacher profile:", err);
@@ -132,7 +132,7 @@ export default function TeacherDashboardYear4() {
                 <div className="profile-photo">
                   {teacherProfile.photo ? (
                     <img
-                      src={`http://localhost:5000/uploads/${teacherProfile.photo}`}
+                      src={`https://experential-learning.onrender.com/uploads/${teacherProfile.photo}`}
                       alt="Profile"
                     />
                   ) : (

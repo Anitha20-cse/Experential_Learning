@@ -40,7 +40,7 @@ export default function DriveDetails() {
   const fetchDrives = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/drives?department=${filterDept}`
+        `https://experential-learning.onrender.com/api/drives?department=${filterDept}`
       );
       setDrives(res.data);
     } catch (err) {
@@ -76,7 +76,7 @@ export default function DriveDetails() {
     formData.append("file", file);
 
     try {
-      const res = await axios.post("http://localhost:5000/api/drives", formData, {
+      const res = await axios.post("https://experential-learning.onrender.com/api/drives", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setDrives([res.data, ...drives]);
@@ -269,9 +269,9 @@ export default function DriveDetails() {
               </div>
 
               {drive.file && (
-                <div className="card-image" onClick={() => setSelectedImage(`http://localhost:5000${drive.file}`)}>
+                <div className="card-image" onClick={() => setSelectedImage(`https://experential-learning.onrender.com${drive.file}`)}>
                   <img 
-                    src={`http://localhost:5000${drive.file}`} 
+                    src={`https://experential-learning.onrender.com${drive.file}`} 
                     alt={drive.name}
                     loading="lazy"
                   />

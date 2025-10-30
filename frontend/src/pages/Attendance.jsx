@@ -41,7 +41,7 @@ const AttendancePage = () => {
         headers['x-user-role'] = 'parent';
         headers['x-user-email'] = parentData.email;
       }
-      const res = await axios.get("http://localhost:5000/api/attendance", { headers });
+      const res = await axios.get("https://experential-learning.onrender.com/api/attendance", { headers });
       setStudents(res.data);
     } catch (err) {
       console.error(err);
@@ -75,7 +75,7 @@ const AttendancePage = () => {
         'Content-Type': 'multipart/form-data'
       };
 
-      const res = await axios.post("http://localhost:5000/api/attendance/upload", formDataUpload, { headers });
+      const res = await axios.post("https://experential-learning.onrender.com/api/attendance/upload", formDataUpload, { headers });
 
       setMonthWiseMessage(res.data.message);
       setMonthWiseForm({
@@ -109,7 +109,7 @@ const AttendancePage = () => {
         'Content-Type': 'multipart/form-data'
       };
 
-      const res = await axios.post("http://localhost:5000/api/attendance/upload", formDataUpload, { headers });
+      const res = await axios.post("https://experential-learning.onrender.com/api/attendance/upload", formDataUpload, { headers });
 
       setConsolidatedMessage(res.data.message);
       setConsolidatedForm({
@@ -135,7 +135,7 @@ const AttendancePage = () => {
         'x-user-email': teacherData.email
       };
 
-      const res = await axios.delete("http://localhost:5000/api/attendance", { headers });
+      const res = await axios.delete("https://experential-learning.onrender.com/api/attendance", { headers });
       setDeleteMessage(res.data.message);
       fetchStudents();
     } catch (err) {

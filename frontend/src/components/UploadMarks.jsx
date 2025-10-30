@@ -41,7 +41,7 @@ export default function UploadMarks({ onClose, onUploadSuccess }) {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/marks/upload", data, { headers });
+      await axios.post("https://experential-learning.onrender.com/api/marks/upload", data, { headers });
       alert("Marks uploaded successfully!");
       onUploadSuccess && onUploadSuccess();
       onClose();

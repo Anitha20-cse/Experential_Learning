@@ -23,7 +23,7 @@ const CBCSPage = () => {
 
   const fetchTeacherProfile = async (email) => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/teachers/profile/${email}`);
+      const res = await axios.get(`https://experential-learning.onrender.com/api/teachers/profile/${email}`);
       setTeacherId(res.data._id);
     } catch (err) {
       console.error("Error fetching teacher profile:", err);
@@ -34,7 +34,7 @@ const CBCSPage = () => {
   const loadAssignedStudents = async (teacherEmail) => {
     try {
       setLoading(true);
-      const res = await axios.get(`http://localhost:5000/api/cbcs/teacher?teacherEmail=${teacherEmail}`);
+      const res = await axios.get(`https://experential-learning.onrender.com/api/cbcs/teacher?teacherEmail=${teacherEmail}`);
       setStudents(res.data);
       if (res.data.length > 0 && res.data[0].subjects) {
         const subjectNames = [
@@ -87,14 +87,14 @@ const CBCSPage = () => {
       formData.append("teacherEmail", teacherData.email);
 
       const token = localStorage.getItem("token");
-      const res = await axios.post("http://localhost:5000/api/cbcs/upload", formData, {
+      const res = await axios.post("https://experential-learning.onrender.com/api/cbcs/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           "Authorization": `Bearer ${token}`,
         },
       });
 
-      const teacherRes = await axios.get(`http://localhost:5000/api/cbcs/teacher?teacherEmail=${teacherData.email}`);
+      const teacherRes = await axios.get(`https://experential-learning.onrender.com/api/cbcs/teacher?teacherEmail=${teacherData.email}`);
 
       setStudents(teacherRes.data);
       if (teacherRes.data.length > 0 && teacherRes.data[0].subjects) {
@@ -133,7 +133,7 @@ const CBCSPage = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:5000/api/cbcs/${id}`, {
+      await axios.delete(`https://experential-learning.onrender.com/api/cbcs/${id}`, {
         headers: {
           "Authorization": `Bearer ${token}`,
         },
@@ -160,7 +160,7 @@ const CBCSPage = () => {
       const teacherData = JSON.parse(localStorage.getItem("teacher"));
       const token = localStorage.getItem("token");
 
-      await axios.delete(`http://localhost:5000/api/cbcs/teacher/all?teacherEmail=${teacherData.email}`, {
+      await axios.delete(`https://experential-learning.onrender.com/api/cbcs/teacher/all?teacherEmail=${teacherData.email}`, {
         headers: {
           "Authorization": `Bearer ${token}`,
         },

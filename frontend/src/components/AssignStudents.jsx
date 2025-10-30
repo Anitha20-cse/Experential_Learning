@@ -55,7 +55,7 @@ const AssignStudents = () => {
   const fetchStudents = async () => {
     if (!selectedDepartment || !selectedYear) return;
     try {
-      const res = await axios.get(`http://localhost:5000/api/assigned-students/students?department=${selectedDepartment}&year=${selectedYear}`);
+      const res = await axios.get(`https://experential-learning.onrender.com/api/assigned-students/students?department=${selectedDepartment}&year=${selectedYear}`);
       setStudents(res.data);
     } catch (error) {
       console.error('Error fetching students:', error);
@@ -65,7 +65,7 @@ const AssignStudents = () => {
   const fetchTeachers = async () => {
     if (!selectedDepartment) return;
     try {
-      const res = await axios.get(`http://localhost:5000/api/assigned-students/teachers?department=${selectedDepartment}`);
+      const res = await axios.get(`https://experential-learning.onrender.com/api/assigned-students/teachers?department=${selectedDepartment}`);
       setTeachers(res.data);
     } catch (error) {
       console.error('Error fetching teachers:', error);
@@ -77,7 +77,7 @@ const AssignStudents = () => {
       const params = new URLSearchParams();
       if (filterDepartment) params.append('department', filterDepartment);
       if (filterYear) params.append('year', filterYear);
-      const res = await axios.get(`http://localhost:5000/api/assigned-students/assignments?${params.toString()}`);
+      const res = await axios.get(`https://experential-learning.onrender.com/api/assigned-students/assignments?${params.toString()}`);
       setAssignments(res.data);
     } catch (error) {
       console.error('Error fetching assignments:', error);
@@ -132,7 +132,7 @@ const AssignStudents = () => {
     }
 
     try {
-      const res = await axios.post('http://localhost:5000/api/assigned-students/assign', formData, {
+      const res = await axios.post('https://experential-learning.onrender.com/api/assigned-students/assign', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -153,7 +153,7 @@ const AssignStudents = () => {
       return;
     }
     try {
-      const res = await axios.put(`http://localhost:5000/api/assigned-students/assignments/${assignmentId}`, {
+      const res = await axios.put(`https://experential-learning.onrender.com/api/assigned-students/assignments/${assignmentId}`, {
         teacherId: newTeacherId,
       });
       showMessage(res.data.message, 'success');
@@ -167,7 +167,7 @@ const AssignStudents = () => {
 
   const handleDelete = async (assignmentId) => {
     try {
-      const res = await axios.delete(`http://localhost:5000/api/assigned-students/assignments/${assignmentId}`);
+      const res = await axios.delete(`https://experential-learning.onrender.com/api/assigned-students/assignments/${assignmentId}`);
       showMessage(res.data.message, 'success');
       fetchAssignments();
     } catch (error) {

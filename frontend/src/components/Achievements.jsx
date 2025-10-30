@@ -56,7 +56,7 @@ const Achievements = () => {
 
   const fetchRecords = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/achievements");
+      const res = await axios.get("https://experential-learning.onrender.com/api/achievements");
       setRecords(res.data);
     } catch (err) {
       console.error(err);
@@ -76,7 +76,7 @@ const Achievements = () => {
       Object.keys(formData).forEach((key) => data.append(key, formData[key]));
       if (file) data.append("file", file);
 
-      await axios.post("http://localhost:5000/api/achievements", data);
+      await axios.post("https://experential-learning.onrender.com/api/achievements", data);
       showMessage("Achievement added successfully! 🎉", "success");
       setFormData({
         name: "",
@@ -163,10 +163,10 @@ const Achievements = () => {
               {rec.file && (
                 <div className="md:w-48 h-48 md:h-auto flex-shrink-0 relative group cursor-pointer">
                   <img
-                    src={`http://localhost:5000/uploads/${rec.file}`}
+                    src={`https://experential-learning.onrender.com/uploads/${rec.file}`}
                     alt="achievement"
                     onClick={() =>
-                      setPreview(`http://localhost:5000/uploads/${rec.file}`)
+                      setPreview(`https://experential-learning.onrender.com/uploads/${rec.file}`)
                     }
                     className="w-full h-full object-cover"
                   />

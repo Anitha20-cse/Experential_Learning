@@ -5,7 +5,7 @@ export default function TopRanks() {
   const [ranks, setRanks] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/dashboard/top-ranks")
+    fetch("https://experential-learning.onrender.com/api/dashboard/top-ranks")
       .then((res) => res.json())
       .then((data) => setRanks(data))
       .catch((err) => console.error("❌ Error fetching ranks:", err));

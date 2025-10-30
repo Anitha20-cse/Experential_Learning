@@ -5,7 +5,7 @@ export default function Activities() {
   const [activities, setActivities] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/dashboard/activities")
+    axios.get("https://experential-learning.onrender.com/api/dashboard/activities")
       .then(res => setActivities(res.data))
       .catch(err => console.error(err));
   }, []);

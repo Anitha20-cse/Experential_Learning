@@ -79,7 +79,7 @@ export default function ViewStudents() {
   const fetchTeacherProfile = async (email) => {
     try {
       setTeacherEmail(email);
-      const res = await axios.get(`http://localhost:5000/api/teachers/profile/${email}`);
+      const res = await axios.get(`https://experential-learning.onrender.com/api/teachers/profile/${email}`);
       const teacherId = res.data._id;
       fetchStudents(teacherId);
     } catch (err) {
@@ -91,7 +91,7 @@ export default function ViewStudents() {
 
   const fetchStudents = async (teacherId) => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/assigned-students/teacher/${teacherId}`);
+      const res = await axios.get(`https://experential-learning.onrender.com/api/assigned-students/teacher/${teacherId}`);
       setStudents(res.data.filter(s => s));
       setFilteredStudents(res.data.filter(s => s));
     } catch (err) {
@@ -104,7 +104,7 @@ export default function ViewStudents() {
 
   const fetchStudentsForParent = async (parentEmail) => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/students/parent/${parentEmail}`);
+      const res = await axios.get(`https://experential-learning.onrender.com/api/students/parent/${parentEmail}`);
       setStudents(res.data);
       setFilteredStudents(res.data);
     } catch (err) {
@@ -123,7 +123,7 @@ export default function ViewStudents() {
     setModalError("");
 
     try {
-      const res = await axios.get(`http://localhost:5000/api/students/${student._id}?teacherEmail=${teacherEmail}`);
+      const res = await axios.get(`https://experential-learning.onrender.com/api/students/${student._id}?teacherEmail=${teacherEmail}`);
       setSelectedStudent(res.data);
     } catch (err) {
       console.error("Error fetching student details:", err);

@@ -20,17 +20,17 @@ export default function Login() {
     try {
       let res;
       if (role === "admin") {
-        res = await axios.post("http://localhost:5000/api/auth/admin/login", {
+        res = await axios.post("https://experential-learning.onrender.com/api/auth/admin/login", {
           email: username,
           password,
         });
       } else if (role === "teacher") {
-        res = await axios.post("http://localhost:5000/api/auth/teacher/login", {
+        res = await axios.post("https://experential-learning.onrender.com/api/auth/teacher/login", {
           email: username,
           password,
         });
       } else if (role === "parent") {
-        res = await axios.post("http://localhost:5000/api/auth/parent/login", {
+        res = await axios.post("https://experential-learning.onrender.com/api/auth/parent/login", {
           email,
           password,
         });
@@ -63,7 +63,7 @@ export default function Login() {
       const decoded = jwtDecode(credentialResponse.credential);
       const token = credentialResponse.credential;
 
-      const res = await axios.post("http://localhost:5000/api/auth/google/login", {
+      const res = await axios.post("https://experential-learning.onrender.com/api/auth/google/login", {
         token,
         role,
       });

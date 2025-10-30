@@ -19,7 +19,7 @@ export default function ParentTimetable() {
       headers["x-timetable-type"] = viewType;
     }
 
-    fetch("http://localhost:5000/api/timetable", { headers })
+    fetch("https://experential-learning.onrender.com/api/timetable", { headers })
       .then((res) => res.json())
       .then((data) => {
         setTimetables(data);
@@ -493,7 +493,7 @@ export default function ParentTimetable() {
               </div>
               <div className="image-container">
                 <img
-                  src={`http://localhost:5000${t.imageUrl}`}
+                  src={`https://experential-learning.onrender.com${t.imageUrl}`}
                   alt={t.semester}
                   className="timetable-image"
                   onError={(e) => {
@@ -537,7 +537,7 @@ export default function ParentTimetable() {
               </button>
             </div>
             <img
-              src={`http://localhost:5000${selectedImage.imageUrl}`}
+              src={`https://experential-learning.onrender.com${selectedImage.imageUrl}`}
               alt={selectedImage.semester}
               className="modal-image"
               onError={(e) => {

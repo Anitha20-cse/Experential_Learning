@@ -19,7 +19,7 @@ export default function ParentScholarship() {
 
         // First get parent's children register numbers
         const studentResponse = await axios.get(
-          `http://localhost:5000/api/assigned-students/parent/profile?parentEmail=${parentData.email}`
+          `https://experential-learning.onrender.com/api/assigned-students/parent/profile?parentEmail=${parentData.email}`
         );
 
         if (!studentResponse.data || studentResponse.data.length === 0) {
@@ -31,7 +31,7 @@ export default function ParentScholarship() {
         const studentRegNos = studentResponse.data.map(student => student.regno);
 
         // Then fetch all scholarships and filter by children's register numbers
-        const scholarshipResponse = await axios.get("http://localhost:5000/api/scholarships");
+        const scholarshipResponse = await axios.get("https://experential-learning.onrender.com/api/scholarships");
 
         const filteredScholarships = scholarshipResponse.data.filter(scholarship =>
           studentRegNos.includes(scholarship.regno)

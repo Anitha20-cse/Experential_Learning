@@ -5,7 +5,7 @@ export default function Assignments() {
   const [assignments, setAssignments] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/dashboard/assignments")
+    axios.get("https://experential-learning.onrender.com/api/dashboard/assignments")
       .then(res => setAssignments(res.data))
       .catch(err => console.error(err));
   }, []);

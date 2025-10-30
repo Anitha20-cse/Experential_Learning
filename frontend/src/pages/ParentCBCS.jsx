@@ -20,7 +20,7 @@ const ParentCBCSPage = () => {
         return;
       }
 
-      const res = await axios.get(`http://localhost:5000/api/cbcs/parent?parentEmail=${parentData.email}`);
+      const res = await axios.get(`https://experential-learning.onrender.com/api/cbcs/parent?parentEmail=${parentData.email}`);
       setData(res.data);
       setLoading(false);
     } catch (err) {
@@ -35,7 +35,7 @@ const ParentCBCSPage = () => {
     setPhotoError("");
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/teachers/photo/${encodeURIComponent(facultyName)}`
+        `https://experential-learning.onrender.com/api/teachers/photo/${encodeURIComponent(facultyName)}`
       );
       setFacultyPhoto(res.data.photo || "/default-avatar.png");
       setSelectedFaculty(facultyName);
@@ -552,7 +552,7 @@ const ParentCBCSPage = () => {
               ) : facultyPhoto ? (
                 <div style={{ textAlign: 'center' }}>
                   <img
-                    src={facultyPhoto.startsWith('http') ? facultyPhoto : `http://localhost:5000/uploads/${facultyPhoto}`}
+                    src={facultyPhoto.startsWith('http') ? facultyPhoto : `https://experential-learning.onrender.com/uploads/${facultyPhoto}`}
                     alt={`${selectedFaculty} photo`}
                     style={{
                       maxWidth: '100%',

@@ -15,7 +15,7 @@ export default function ParentTopRanks() {
     }
 
     axios
-      .get("http://localhost:5000/api/dashboard/top3", { headers })
+      .get("https://experential-learning.onrender.com/api/dashboard/top3", { headers })
       .then((res) => setTop3(res.data))
       .catch((err) => console.error(err))
       .finally(() => setLoading(false));

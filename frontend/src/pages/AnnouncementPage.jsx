@@ -39,7 +39,7 @@ const AnnouncementPage = () => {
         headers['x-user-email'] = parentData.email;
       }
 
-      const res = await axios.get("http://localhost:5000/api/announcements", {
+      const res = await axios.get("https://experential-learning.onrender.com/api/announcements", {
         params,
         headers,
       });
@@ -59,12 +59,12 @@ const AnnouncementPage = () => {
       }
       if (editId) {
         await axios.put(
-          `http://localhost:5000/api/announcements/${editId}`,
+          `https://experential-learning.onrender.com/api/announcements/${editId}`,
           payload
         );
         toast.success("✅ Announcement updated");
       } else {
-        await axios.post("http://localhost:5000/api/announcements", payload);
+        await axios.post("https://experential-learning.onrender.com/api/announcements", payload);
         toast.success("✅ Announcement added");
       }
       setForm({ title: "", content: "" });
@@ -85,7 +85,7 @@ const AnnouncementPage = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this announcement?"))
       return;
-    await axios.delete(`http://localhost:5000/api/announcements/${id}`);
+    await axios.delete(`https://experential-learning.onrender.com/api/announcements/${id}`);
     toast.success("🗑️ Deleted successfully");
     fetchData();
   };

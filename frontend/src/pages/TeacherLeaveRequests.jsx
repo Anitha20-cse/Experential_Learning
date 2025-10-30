@@ -22,7 +22,7 @@ export default function TeacherLeaveRequests() {
   const fetchLeaveRequests = async (email) => {
     try {
       setLoading(true);
-      const response = await axios.get(`http://localhost:5000/api/leave-requests/teacher/${email}`);
+      const response = await axios.get(`https://experential-learning.onrender.com/api/leave-requests/teacher/${email}`);
       setLeaveRequests(response.data);
     } catch (error) {
       console.error("Error fetching leave requests:", error);
@@ -34,7 +34,7 @@ export default function TeacherLeaveRequests() {
   const handleStatusUpdate = async (id, status) => {
     try {
       setLoading(true);
-      await axios.put(`http://localhost:5000/api/leave-requests/${id}`, {
+      await axios.put(`https://experential-learning.onrender.com/api/leave-requests/${id}`, {
         status,
         teacherComments: comments,
       });

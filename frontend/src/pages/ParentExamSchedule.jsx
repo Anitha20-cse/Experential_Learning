@@ -23,7 +23,7 @@ export default function ParentExamSchedule() {
         headers['x-user-email'] = parentData.email;
       }
 
-      const res = await axios.get("http://localhost:5000/api/exams", { headers });
+      const res = await axios.get("https://experential-learning.onrender.com/api/exams", { headers });
       setExams(res.data);
     } catch (err) {
       console.error(err);
@@ -68,7 +68,7 @@ export default function ParentExamSchedule() {
                   <button
                     className="exam-action-btn exam-view-btn"
                     onClick={() =>
-                      setPdfPreview(`http://localhost:5000${exam.file}`)
+                      setPdfPreview(`https://experential-learning.onrender.com${exam.file}`)
                     }
                     title="View PDF"
                   >

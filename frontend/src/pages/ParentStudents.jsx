@@ -21,7 +21,7 @@ export default function ParentStudents() {
 
   const fetchStudentsForParent = async (parentEmail) => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/students/parent/${parentEmail}`);
+      const res = await axios.get(`https://experential-learning.onrender.com/api/students/parent/${parentEmail}`);
       setStudents(res.data);
     } catch (err) {
       console.error("Error fetching students for parent:", err);

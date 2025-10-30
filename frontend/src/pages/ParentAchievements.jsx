@@ -15,7 +15,7 @@ export default function ParentAchievements() {
 
   const fetchAchievements = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/achievements");
+      const res = await axios.get("https://experential-learning.onrender.com/api/achievements");
       setAchievements(res.data);
     } catch (err) {
       console.error("Error fetching achievements:", err);
@@ -108,9 +108,9 @@ export default function ParentAchievements() {
               {achievement.file && (
                 <div className="achievement-image">
                   <img
-                    src={`http://localhost:5000/uploads/${achievement.file}`}
+                    src={`https://experential-learning.onrender.com/uploads/${achievement.file}`}
                     alt="Achievement"
-                    onClick={() => window.open(`http://localhost:5000/uploads/${achievement.file}`, '_blank')}
+                    onClick={() => window.open(`https://experential-learning.onrender.com/uploads/${achievement.file}`, '_blank')}
                   />
                 </div>
               )}

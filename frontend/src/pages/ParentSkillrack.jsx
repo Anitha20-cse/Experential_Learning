@@ -21,7 +21,7 @@ const ParentSkillrack = () => {
         headers['x-user-role'] = 'parent';
         headers['x-user-email'] = parentData.email;
       }
-      const res = await axios.get("http://localhost:5000/api/skillrack", { headers });
+      const res = await axios.get("https://experential-learning.onrender.com/api/skillrack", { headers });
       setChildData(res.data.childData || []);
       setTopCoders(res.data.topCoders || []);
     } catch (err) {

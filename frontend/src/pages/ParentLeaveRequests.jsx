@@ -25,7 +25,7 @@ export default function ParentLeaveRequests() {
 
   const fetchLeaveRequests = async (email) => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/leave-requests/parent/${email}`);
+      const response = await axios.get(`https://experential-learning.onrender.com/api/leave-requests/parent/${email}`);
       setLeaveRequests(response.data);
     } catch (error) {
       console.error("Error fetching leave requests:", error);
@@ -36,7 +36,7 @@ export default function ParentLeaveRequests() {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post("http://localhost:5000/api/leave-requests", {
+      await axios.post("https://experential-learning.onrender.com/api/leave-requests", {
         ...formData,
         parentEmail,
       });

@@ -35,7 +35,7 @@ const TeacherManagement = () => {
   const fetchTeachers = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:5000/api/teachers");
+      const res = await axios.get("https://experential-learning.onrender.com/api/teachers");
       setTeachers(res.data.filter((t) => t.department === department));
     } catch (err) {
       console.error("Error fetching teachers", err);
@@ -70,11 +70,11 @@ const TeacherManagement = () => {
 
     try {
       if (editingTeacher) {
-        await axios.put(`http://localhost:5000/api/teachers/${editingTeacher._id}`, formData, {
+        await axios.put(`https://experential-learning.onrender.com/api/teachers/${editingTeacher._id}`, formData, {
           headers: { "Content-Type": "multipart/form-data" },
         });
       } else {
-        await axios.post("http://localhost:5000/api/teachers/add", formData, {
+        await axios.post("https://experential-learning.onrender.com/api/teachers/add", formData, {
           headers: { "Content-Type": "multipart/form-data" },
         });
       }
@@ -104,7 +104,7 @@ const TeacherManagement = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this teacher?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/teachers/${id}`);
+      await axios.delete(`https://experential-learning.onrender.com/api/teachers/${id}`);
       fetchTeachers();
     } catch (err) {
       console.error("Error deleting teacher", err);
@@ -221,7 +221,7 @@ const TeacherManagement = () => {
           />
           {(photo || (editingTeacher && editingTeacher.photo)) && (
             <img
-              src={photo ? URL.createObjectURL(photo) : `http://localhost:5000/uploads/${editingTeacher.photo}`}
+              src={photo ? URL.createObjectURL(photo) : `https://experential-learning.onrender.com/uploads/${editingTeacher.photo}`}
               alt="Preview"
               className="preview-img"
             />
@@ -259,7 +259,7 @@ const TeacherManagement = () => {
               </button>
               {t.photo ? (
                 <img
-                  src={`http://localhost:5000/uploads/${t.photo}`}
+                  src={`https://experential-learning.onrender.com/uploads/${t.photo}`}
 
                   alt={t.name}
                   className="teacher-photo"

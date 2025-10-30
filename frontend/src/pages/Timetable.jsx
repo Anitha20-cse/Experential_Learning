@@ -57,7 +57,7 @@ export default function Timetable() {
 
   const fetchTimetables = async (selectedType = timetableType) => {
     try {
-      const res = await axios.get("http://localhost:5000/api/timetable", {
+      const res = await axios.get("https://experential-learning.onrender.com/api/timetable", {
         headers: { ...getHeaders(), "x-timetable-type": selectedType },
       });
       setTimetables(res.data);
@@ -112,13 +112,13 @@ export default function Timetable() {
 
     try {
       if (editMode && editId) {
-        await axios.put(`http://localhost:5000/api/timetable/${editId}`, formData, {
+        await axios.put(`https://experential-learning.onrender.com/api/timetable/${editId}`, formData, {
           headers: { ...getHeaders(), "Content-Type": "multipart/form-data" },
         });
         setEditMode(false);
         setEditId(null);
       } else {
-        await axios.post("http://localhost:5000/api/timetable", formData, {
+        await axios.post("https://experential-learning.onrender.com/api/timetable", formData, {
           headers: { ...getHeaders(), "Content-Type": "multipart/form-data" },
         });
       }
@@ -160,7 +160,7 @@ export default function Timetable() {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this timetable?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/timetable/${id}`, {
+      await axios.delete(`https://experential-learning.onrender.com/api/timetable/${id}`, {
         headers: getHeaders(),
       });
       fetchTimetables();
@@ -173,7 +173,7 @@ export default function Timetable() {
   const handleDeleteAll = async () => {
     if (window.confirm("Are you sure you want to delete all timetables?")) {
       try {
-        await axios.delete("http://localhost:5000/api/timetable", {
+        await axios.delete("https://experential-learning.onrender.com/api/timetable", {
           headers: getHeaders(),
         });
         fetchTimetables();
@@ -405,10 +405,10 @@ export default function Timetable() {
                   </div>
                   <div 
                     className="card-image"
-                    onClick={() => setSelectedImage(`http://localhost:5000${t.imageUrl}`)}
+                    onClick={() => setSelectedImage(`https://experential-learning.onrender.com${t.imageUrl}`)}
                   >
                     <img
-                      src={`http://localhost:5000${t.imageUrl}`}
+                      src={`https://experential-learning.onrender.com${t.imageUrl}`}
                       alt={t.semester}
                       loading="lazy"
                     />
@@ -460,10 +460,10 @@ export default function Timetable() {
                   </div>
                   <div 
                     className="card-image"
-                    onClick={() => setSelectedImage(`http://localhost:5000${t.imageUrl}`)}
+                    onClick={() => setSelectedImage(`https://experential-learning.onrender.com${t.imageUrl}`)}
                   >
                     <img
-                      src={`http://localhost:5000${t.imageUrl}`}
+                      src={`https://experential-learning.onrender.com${t.imageUrl}`}
                       alt={t.semester}
                       loading="lazy"
                     />

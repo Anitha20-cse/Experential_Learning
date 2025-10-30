@@ -400,7 +400,7 @@ export default function TeacherDashboard() {
                 }}>
                   {teacherProfile?.photo ? (
                     <img
-                      src={`http://localhost:5000/uploads/${teacherProfile.photo}`}
+                      src={`https://experential-learning.onrender.com/uploads/${teacherProfile.photo}`}
                       alt="Profile"
                       style={{ width: "100%", height: "100%", borderRadius: "50%", objectFit: "cover" }}
                     />

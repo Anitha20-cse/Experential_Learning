@@ -6,7 +6,7 @@ export default function SkillrackMedals() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/skillrack-medals")
+      .get("https://experential-learning.onrender.com/api/skillrack-medals")
       .then((res) => setStudents(res.data))
       .catch((err) => console.error(err));
   }, []);

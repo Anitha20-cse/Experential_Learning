@@ -19,9 +19,9 @@ const ParentAttendance = () => {
         headers['x-user-email'] = parentData.email;
       }
       
-      // Replace with: const res = await axios.get("http://localhost:5000/api/attendance", { headers });
+      // Replace with: const res = await axios.get("https://experential-learning.onrender.com/api/attendance", { headers });
       // For demo, using fetch:
-      const res = await fetch("http://localhost:5000/api/attendance", { headers });
+      const res = await fetch("https://experential-learning.onrender.com/api/attendance", { headers });
       const data = await res.json();
       setStudents(data);
     } catch (err) {

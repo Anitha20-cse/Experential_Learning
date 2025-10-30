@@ -22,7 +22,7 @@ export default function ParentDrives() {
         'x-user-email': parentData.email,
       };
       const res = await axios.get(
-        `http://localhost:5000/api/drives?department=${filterDept}`,
+        `https://experential-learning.onrender.com/api/drives?department=${filterDept}`,
         { headers }
       );
       setDrives(res.data);
@@ -117,7 +117,7 @@ export default function ParentDrives() {
               <div className="drive-actions">
                 <button
                   className="download-btn"
-                  onClick={() => window.open(`http://localhost:5000${drive.file}`, '_blank')}
+                  onClick={() => window.open(`https://experential-learning.onrender.com${drive.file}`, '_blank')}
                 >
                   <Download size={16} />
                   View Details

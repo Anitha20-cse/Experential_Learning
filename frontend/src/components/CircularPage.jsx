@@ -21,7 +21,7 @@ export default function CircularPage() {
 
   const fetchCirculars = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/circulars");
+      const res = await axios.get("https://experential-learning.onrender.com/api/circulars");
       setCirculars(res.data);
     } catch (err) {
       console.error(err);
@@ -43,7 +43,7 @@ export default function CircularPage() {
     if (formData.file) data.append("file", formData.file);
 
     try {
-      await axios.post("http://localhost:5000/api/circulars", data);
+      await axios.post("https://experential-learning.onrender.com/api/circulars", data);
       setFormData({ title: "", description: "", category: "Leave", file: null });
       setShowForm(false);
       fetchCirculars();
@@ -56,7 +56,7 @@ export default function CircularPage() {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/circulars/${id}`);
+      await axios.delete(`https://experential-learning.onrender.com/api/circulars/${id}`);
       fetchCirculars();
     } catch (err) { console.error(err); }
   };
@@ -101,7 +101,7 @@ export default function CircularPage() {
               {c.file && (
                 <button 
                   className="pdf-btn" 
-                  onClick={() => setPdfPreview(`http://localhost:5000${c.file}`)}
+                  onClick={() => setPdfPreview(`https://experential-learning.onrender.com${c.file}`)}
                 >
                   <FaFileAlt />
                 </button>

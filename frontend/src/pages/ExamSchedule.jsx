@@ -70,7 +70,7 @@ export default function ExamSchedule() {
         headers['x-user-email'] = parentData.email;
       }
 
-      const res = await axios.get("http://localhost:5000/api/exams", { headers });
+      const res = await axios.get("https://experential-learning.onrender.com/api/exams", { headers });
       setExams(res.data);
     } catch (err) {
       console.error(err);
@@ -104,7 +104,7 @@ export default function ExamSchedule() {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/exams", data, { headers });
+      await axios.post("https://experential-learning.onrender.com/api/exams", data, { headers });
       showMessage("Exam schedule added successfully! 📅", "success");
       setFormData({
         examType: "PT Exam",
@@ -130,7 +130,7 @@ export default function ExamSchedule() {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:5000/api/exams/${deleteId}`);
+      await axios.delete(`https://experential-learning.onrender.com/api/exams/${deleteId}`);
       showMessage("Exam deleted successfully", "success");
       fetchExams();
       setShowDeleteConfirm(false);
@@ -144,7 +144,7 @@ export default function ExamSchedule() {
 
   const handleViewPDF = (filePath) => {
     // Construct the full URL for the PDF
-    const pdfUrl = `http://localhost:5000${filePath}`;
+    const pdfUrl = `https://experential-learning.onrender.com${filePath}`;
     setPdfPreview(pdfUrl);
   };
 

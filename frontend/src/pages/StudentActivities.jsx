@@ -34,7 +34,7 @@ export default function StudentActivities() {
       headers['x-user-email'] = parentData.email;
     }
 
-    fetch("http://localhost:5000/api/activities", { headers })
+    fetch("https://experential-learning.onrender.com/api/activities", { headers })
       .then(res => res.json())
       .then((data) => setActivities(data))
       .catch((err) => console.error(err));
@@ -76,7 +76,7 @@ export default function StudentActivities() {
         let res;
         if (editingId) {
           res = await fetch(
-            `http://localhost:5000/api/activities/${editingId}`,
+            `https://experential-learning.onrender.com/api/activities/${editingId}`,
             {
               method: 'PUT',
               body: formData,
@@ -87,7 +87,7 @@ export default function StudentActivities() {
           setActivities(activities.map(act => act._id === editingId ? updatedActivity : act));
         } else {
           res = await fetch(
-            "http://localhost:5000/api/activities",
+            "https://experential-learning.onrender.com/api/activities",
             {
               method: 'POST',
               body: formData,
@@ -131,7 +131,7 @@ export default function StudentActivities() {
 
     (async () => {
       try {
-        await fetch(`http://localhost:5000/api/activities/${id}`, {
+        await fetch(`https://experential-learning.onrender.com/api/activities/${id}`, {
           method: 'DELETE',
           headers
         });

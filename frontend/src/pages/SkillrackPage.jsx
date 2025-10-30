@@ -45,7 +45,7 @@ const SkillrackPage = () => {
         headers['x-user-id'] = teacherData._id;
       }
 
-      const res = await axios.post("http://localhost:5000/api/skillrack/upload", formData, {
+      const res = await axios.post("https://experential-learning.onrender.com/api/skillrack/upload", formData, {
         headers,
       });
       setMessage(res.data.message);
@@ -58,7 +58,7 @@ const SkillrackPage = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete("http://localhost:5000/api/skillrack");
+      await axios.delete("https://experential-learning.onrender.com/api/skillrack");
       setMessage("All skillrack data deleted ❌");
       setData([]);
     } catch (err) {
@@ -78,7 +78,7 @@ const SkillrackPage = () => {
         headers["x-user-role"] = "parent";
         headers["x-user-email"] = parentData.email;
       }
-      const res = await axios.get("http://localhost:5000/api/skillrack", { headers });
+      const res = await axios.get("https://experential-learning.onrender.com/api/skillrack", { headers });
       setData(res.data);
     } catch (err) {
       console.error("Error fetching data:", err);

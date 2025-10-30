@@ -28,7 +28,7 @@ export default function Scholarship() {
   const fetchScholarships = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:5000/api/scholarships");
+      const response = await axios.get("https://experential-learning.onrender.com/api/scholarships");
       setScholarships(response.data);
       setLoading(false);
     } catch (error) {
@@ -51,11 +51,11 @@ export default function Scholarship() {
     try {
       if (editIndex !== null) {
         const scholarshipId = scholarships[editIndex]._id;
-        await axios.put(`http://localhost:5000/api/scholarships/${scholarshipId}`, formData);
+        await axios.put(`https://experential-learning.onrender.com/api/scholarships/${scholarshipId}`, formData);
         await fetchScholarships();
         setEditIndex(null);
       } else {
-        await axios.post("http://localhost:5000/api/scholarships", formData);
+        await axios.post("https://experential-learning.onrender.com/api/scholarships", formData);
         await fetchScholarships();
       }
 
@@ -88,7 +88,7 @@ export default function Scholarship() {
     if (window.confirm("Are you sure you want to delete this scholarship?")) {
       try {
         const scholarshipId = scholarships[index]._id;
-        await axios.delete(`http://localhost:5000/api/scholarships/${scholarshipId}`);
+        await axios.delete(`https://experential-learning.onrender.com/api/scholarships/${scholarshipId}`);
         await fetchScholarships();
       } catch (error) {
         console.error("Error deleting scholarship:", error);
