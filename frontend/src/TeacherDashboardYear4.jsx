@@ -15,7 +15,7 @@ import {
   Users,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import "./TeacherDashboard.css";
+import "./TeacherDashBoard.css";
 import axios from "axios";
 
 export default function TeacherDashboardYear4() {

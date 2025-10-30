@@ -23,13 +23,5 @@ dist-ssr
 *.sln
 *.sw?
 
-.env
-
-# Build and deployment folders
-build/
-backend/node_modules/
-frontend/node_modules/
-
-# OS files
 Thumbs.db
 
